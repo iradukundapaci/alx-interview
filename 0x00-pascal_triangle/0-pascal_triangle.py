@@ -53,5 +53,6 @@ def pascal_triangle(n):
                     rowNumber=i + 1, previousRow=previousRow
                 )
             )
+        return pascalTriangleList
     else:
         return []
