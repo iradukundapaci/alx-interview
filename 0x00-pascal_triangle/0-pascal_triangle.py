@@ -5,23 +5,6 @@ triangle
 """
 
 
-def validate_n(n):
-    """
-    Function to validate the pascal triangle input
-    Args:
-        n: triangle row
-    Returns:
-        True if the input is valid, raises exceptions otherwise
-    """
-    if not isinstance(n, int):
-        raise TypeError("n must be an integer")
-
-    if n <= 0:
-        raise ValueError("n must be greater than 0")
-
-    return True
-
-
 def generate_new_pascal_row(rowNumber, previousRow):
     """
     function that return new pascal row
@@ -56,18 +39,9 @@ def pascal_triangle(n):
     function to return pascal triangle
         n: triangle number of rows
     """
-    nValidationResult = None
-    try:
-        nValidationResult = validate_n(n)
-
-    except TypeError:
-        print('n must be an integer')
-    except Exception:
-        print('n is less than 1')
-
     pascalTriangleList = []
 
-    if (nValidationResult):
+    if (n > 0):
         for i in range(n):
             if (len(pascalTriangleList) == 0):
                 previousRow = []
@@ -79,5 +53,5 @@ def pascal_triangle(n):
                     rowNumber=i + 1, previousRow=previousRow
                 )
             )
-
-    return pascalTriangleList
+    else:
+        return []
