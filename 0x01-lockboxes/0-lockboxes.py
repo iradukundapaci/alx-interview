@@ -14,15 +14,11 @@ def canUnlockAll(boxes: List[List[int]]) -> bool:
 
     return: True if lox are unlockable Flase otherwise
     """
-    total_boxes = len(boxes)
-    visited_boxes: Set[int] = set()
-    stack = [0]
-
-    while stack:
-        current_box = stack.pop()
-        visited_boxes.add(current_box)
-        for key in boxes[current_box]:
-            if key not in visited_boxes and key < total_boxes:
-                stack.append(key)
-
-    return len(visited_boxes) == total_boxes
+    keys = [0]
+    for key in keys:
+        for boxKey in boxes[key]:
+            if boxKey not in keys and boxKey < len(boxes):
+                keys.append(boxKey)
+    if len(keys) == len(boxes):
+        return True
+    return False
