@@ -6,9 +6,17 @@ from typing import List, Set
 
 
 def canUnlockAll(boxes: List[List[int]]) -> bool:
+    """
+    Function to verify if all box are unlockable
+
+    arg:
+        boxes: list of boxes
+
+    return: True if lox are unlockable Flase otherwise
+    """
     total_boxes = len(boxes)
     visited_boxes: Set[int] = set()
-    stack = [0]  # Start DFS from box 0
+    stack = [0]
 
     while stack:
         current_box = stack.pop()
