@@ -57,6 +57,14 @@ def pasteOperation(recent_operation: str, current_copy_string: str) -> str:
 
 
 def minOperations(n: int) -> int:
+    """
+    Function calculates minimum operations
+
+    args:
+        n: max operation number
+
+    return: operation number
+    """
     operations = ["H"]
     prime_factors = primeFactors(n)
     copy_op = retreiveLastOperation(operations)
