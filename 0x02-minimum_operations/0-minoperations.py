@@ -2,27 +2,44 @@
 """
 Minimum operations
 """
+from typing import List
+import math
 
 
-def minOperations(n):
+def primeFactors(n: int) -> List[int]:
     """
-    A function that calculates the fewest number of operations
-    needed to give a result of exactly n H characters in a file
-    args: n: Number of characters to be displayed
-    return:
-           number of min operations
-    """
+    Function that find prime factors of a number
 
-    now = 1
-    start = 0
-    counter = 0
-    while now < n:
-        remainder = n - now
-        if remainder % now == 0:
-            start = now
-            now += start
-            counter += 2
-        else:
-            now += start
-            counter += 1
-    return counter
+    args:
+        n: integer number
+
+    return: list of prime factors
+    """
+    prime_factors: List[int] = []
+
+    while n % 2 == 0:
+        n //= 2
+        prime_factors.append(2)
+
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        while n % i == 0:
+            n //= i
+            prime_factors.append(i)
+
+    if n > 2:
+        prime_factors.append(n)
+
+    return prime_factors
+
+
+def minOperations(n: int) -> int:
+    """
+    Function calculates minimum operations
+
+    args:
+        n: max operation number
+
+    return: operation number
+    """
+    prime_factors = primeFactors(n)
+    return sum(prime_factors)
