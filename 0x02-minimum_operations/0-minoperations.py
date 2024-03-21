@@ -71,7 +71,7 @@ def minOperations(n: int) -> int:
 
     if len(prime_factors) == 1 and prime_factors[0] == n:
         return n
-    print("done1")
+
     for i in prime_factors:
         if i % 2 == 0:
             while len(retreiveLastOperation(operations)) != i:
