@@ -16,6 +16,7 @@ def rotate_2d_matrix(matrix) -> None:
     for row in range(len(matrix)):
         for column in range(len(matrix)):
             if row < column:
-                temp = matrix[row][column]
-                matrix[row][column] = matrix[column][row]
-                matrix[column][row] = temp
+                matrix[row][column], matrix[column][row] = (
+                    matrix[column][row],
+                    matrix[row][column],
+                )
